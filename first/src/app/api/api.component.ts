@@ -12,7 +12,7 @@ export class APIComponent implements OnInit {
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.sendGetRequest().subscribe((data: any[]) => {
+    this.dataService.sendGetRequest().subscribe((data: any[]) => {      
       this.products = data;
     });
   }
