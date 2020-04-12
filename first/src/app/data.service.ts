@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,13 @@ export class DataService {
     {id: 3, name: "Contact 003", description: "Contact 003 des", email: "c003@email.com"},
     {id: 4, name: "Contact 004", description: "Contact 004 des", email: "c004@email.com"}
   ];
+  private REST_API_SERVER = "https://jsonplaceholder.typicode.com/users";
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+
+  public sendGetRequest(){
+    return this.httpClient.get(this.REST_API_SERVER);
+  }
 
   public getContacts():Array<{id, name, description, email}>{
     return this.contacts;

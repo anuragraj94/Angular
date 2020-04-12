@@ -18,7 +18,7 @@ export class CreateComponent implements OnInit {
     console.log(this.contact);
     this.dataService.createContact(this.contact);
     this.contact = {id: null, name: "", description: "", email: ""};
-
+    alert('Submitted');
   }
 
 }
