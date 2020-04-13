@@ -5,17 +5,29 @@
       <tr>
         <th scope="col"></th>
         <th scope="col">Name</th>
-        <th scope="col">User Name</th>
-        <th scope="col">Email</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Mobile No</th>
+        <th scope="col">Address</th>
       </tr>
     </thead>
     <tbody>
+      <tr *ngIf="products.length>0; else error">
+
+      </tr>
       <tr *ngFor="let product of products">
         <th scope="row">{{product.id}}</th>
         <td>{{product.name}}</td>
-        <td>{{product.username}}</td>
-        <td>{{product.email}}</td>
+        <td>{{product.lastName}}</td>
+        <td>{{product.mobileNo}}</td>
+        <td>{{product.address}}</td>
       </tr>
+      <ng-template #error>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Data not available</td>
+      </ng-template>
+
     </tbody>
   </table>
 </div>
