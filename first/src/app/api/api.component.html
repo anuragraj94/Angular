@@ -1,5 +1,6 @@
-<br/><br/>
+<br/><br/><br/>
 <div class="container">
+<button class="btn btn-primary" data-toggle="modal" data-target="#NewModal"> Add</button>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -20,6 +21,11 @@
         <td>{{product.lastName}}</td>
         <td>{{product.mobileNo}}</td>
         <td>{{product.address}}</td>
+         <td>
+          <button class="btn btn-info" (click)="selectContact(product)"> Show details</button>
+          <button class="btn btn-secondary ml-1" data-toggle="modal" data-target="#exampleModal" (click)="editContact(product)"> Edit</button>
+          <button class="btn btn-danger ml-1" (click)="delete(product.id)"> Delete</button>
+        </td>
       </tr>
       <ng-template #error>
         <td></td>
@@ -30,4 +36,105 @@
 
     </tbody>
   </table>
+
+<div class="card text-center" *ngIf="showDetails">
+    <div class="card-header">
+      # {{showDetails.id}}
+    </div>
+    <div class="card-block">
+      <p class="card-text">
+        Name : {{showDetails.name}} <br/>
+        Last Name : {{showDetails.lastName}}<br/>
+        Mobile No : {{showDetails.mobileNo}}<br/>
+        Address : {{showDetails.address}}
+      </p>
+    </div>
+  </div>
+
+
+
+
+
+<!-- New Modal -->
+<div class="modal fade" id="NewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" [(ngModel)]="newEntry.name" name="name" placeholder="First name" >
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" [(ngModel)]="newEntry.lastName" name="lastName" placeholder="Last name" >
+    </div>
+  </div>
+  <br/>
+   <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="newEntry.mobileNo" name="mobileNo" id="inputAddress" placeholder="Mobile Number" >
+  </div>
+   <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="newEntry.address" name="address" id="inputAddress" placeholder="Address" >
+  </div>
+</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" (click)="Add()" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Edit Modal -->
+  <!--
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="First name" value={{modelEdit.name}}>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Last name" value={{modelEdit.lastName}}>
+    </div>
+  </div>
+  <br/>
+   <div class="form-group">
+    <input type="number" class="form-control" id="inputAddress" placeholder="Mobile Number" value={{modelEdit.mobileNo}}>
+  </div>
+   <div class="form-group">
+    <input type="text" class="form-control" id="inputAddress" placeholder="Address" value={{modelEdit.address}}>
+  </div>
+</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+-->
+
 </div>
