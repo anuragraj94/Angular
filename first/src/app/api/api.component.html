@@ -1,25 +1,34 @@
 <br/><br/><br/>
 <div class="container">
+
+  <div class="alert alert-warning alert-dismissible fade show" *ngIf="alertMsg" role="alert">
+    <strong>{{msg}}</strong>
+    <button type="button" class="close" (click)="close()" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+
 <button class="btn btn-primary" data-toggle="modal" data-target="#NewModal"> Add</button>
 
 
 <form>
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" [(ngModel)]="newEntry.name" name="name" placeholder="First name" >
+      <input type="text" class="form-control" [(ngModel)]="newEntry.name" name="name" required placeholder="First name" >
     </div>
     <div class="col">
-      <input type="text" class="form-control" [(ngModel)]="newEntry.lastName" name="lastName" placeholder="Last name" >
+      <input type="text" class="form-control" [(ngModel)]="newEntry.lastName" name="lastName" required placeholder="Last name" >
     </div>
   </div>
   <br/>
    <div class="form-group">
-    <input type="text" class="form-control" [(ngModel)]="newEntry.mobileNo" name="mobileNo" id="inputAddress" placeholder="Mobile Number" >
+    <input type="text" class="form-control" [(ngModel)]="newEntry.mobileNo" name="mobileNo" required id="inputAddress" placeholder="Mobile Number" >
   </div>
    <div class="form-group">
-    <input type="text" class="form-control" [(ngModel)]="newEntry.address" name="address" id="inputAddress" placeholder="Address" >
+    <input type="text" class="form-control" [(ngModel)]="newEntry.address" name="address" required id="inputAddress" placeholder="Address" >
   </div>
-  <button type="submit" (click)="Add()" class="btn btn-primary">Save changes</button>
+  <button type="submit" (click)="Add()" class="btn btn-primary">Submit</button>
 </form>
 
 

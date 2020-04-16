@@ -24,6 +24,8 @@ export class APIComponent implements OnInit {
     mobileNo: '',
     address: '',
   };
+  alertMsg:boolean=false;
+  msg:string="";
 
   constructor(public dataService: DataService) {}
 
@@ -43,6 +45,8 @@ export class APIComponent implements OnInit {
     this.dataService.sendPostRequest(this.newEntry).subscribe((data: any) => {
       console.log(data);
       this.Getdata();
+      this.msg=" Data Saved Successfully ";
+      this.alertMsg=true;
     });
     this.newEntry = {
       id: null,
@@ -61,6 +65,8 @@ export class APIComponent implements OnInit {
       .subscribe((data: any) => {
         console.log(data);
         this.Getdata();
+        this.msg=" Data Updated Successfully ";
+      this.alertMsg=true;
       });
     this.newUpdate = {
       id: null,
@@ -81,7 +87,15 @@ export class APIComponent implements OnInit {
   public delete(id) {
     this.dataService.sendDeleteRequest(id).subscribe(() => {
       this.Getdata();
+      this.msg=" Data Deleted Successfully ";
+      this.alertMsg=true;
       console.log('Delete ' + id);
     });
   }
+
+
+close(){
+  this.alertMsg=false;
+}
+
 }
