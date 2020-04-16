@@ -6,6 +6,7 @@ import {ContactComponent} from './contact/contact.component';
 import {CreateComponent} from './create/create.component';
 import {ListComponent} from './list/list.component';
 import {APIComponent} from './api/api.component';
+import {EditComponent} from './edit/edit.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'create', component: CreateComponent},
   {path: 'list', component: ListComponent},
-  {path: 'api', component: APIComponent}
+  {path: 'api', component: APIComponent},
+  {path: 'edit', component: EditComponent},
 ];
 
 @NgModule({

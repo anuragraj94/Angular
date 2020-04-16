@@ -1,6 +1,29 @@
 <br/><br/><br/>
 <div class="container">
 <button class="btn btn-primary" data-toggle="modal" data-target="#NewModal"> Add</button>
+
+
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" [(ngModel)]="newEntry.name" name="name" placeholder="First name" >
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" [(ngModel)]="newEntry.lastName" name="lastName" placeholder="Last name" >
+    </div>
+  </div>
+  <br/>
+   <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="newEntry.mobileNo" name="mobileNo" id="inputAddress" placeholder="Mobile Number" >
+  </div>
+   <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="newEntry.address" name="address" id="inputAddress" placeholder="Address" >
+  </div>
+  <button type="submit" (click)="Add()" class="btn btn-primary">Save changes</button>
+</form>
+
+
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -55,7 +78,9 @@
 
 
 
+
 <!-- New Modal -->
+<!--
 <div class="modal fade" id="NewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -92,11 +117,11 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
 
 
   <!-- Edit Modal -->
-  <!--
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -108,33 +133,33 @@
       </div>
       <div class="modal-body">
 
-<form>
+<form >
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="First name" value={{modelEdit.name}}>
+      <input type="text" class="form-control" [(ngModel)]="newUpdate.name" name="name" placeholder="First name" value={{modelEdit.name}}>
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="Last name" value={{modelEdit.lastName}}>
+      <input type="text" class="form-control" [(ngModel)]="newUpdate.lastName" name="lastName" placeholder="Last name" value={{modelEdit.lastName}}>
     </div>
   </div>
   <br/>
    <div class="form-group">
-    <input type="number" class="form-control" id="inputAddress" placeholder="Mobile Number" value={{modelEdit.mobileNo}}>
+    <input type="number" class="form-control" [(ngModel)]="newUpdate.mobileNo" name="mobileNo" id="inputAddress" placeholder="Mobile Number" value={{modelEdit.mobileNo}}>
   </div>
    <div class="form-group">
-    <input type="text" class="form-control" id="inputAddress" placeholder="Address" value={{modelEdit.address}}>
+    <input type="text" class="form-control" [(ngModel)]="newUpdate.address" name="address" id="inputAddress" placeholder="Address" value={{modelEdit.address}}>
   </div>
 </form>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" (click)="Update(modelEdit.id)" class="btn btn-primary">Update</button>
       </div>
     </div>
   </div>
 </div>
 
--->
+
 
 </div>

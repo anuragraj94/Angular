@@ -13,6 +13,7 @@ import { CreateComponent } from './create/create.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { APIComponent } from './api/api.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { APIComponent } from './api/api.component';
     CreateComponent,
     HeaderComponent,
     FooterComponent,
-    APIComponent
+    APIComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

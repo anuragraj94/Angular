@@ -14,6 +14,7 @@ export class DataService {
   ];
   // private REST_API_SERVER = "https://jsonplaceholder.typicode.com/users";
   private REST_API_SERVER = 'http://localhost:64275/api/home';
+  private testApi='https://my-json-server.typicode.com/techsithgit/json-faker-directory/profiles';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -24,9 +25,26 @@ export class DataService {
      return this.httpClient.delete('http://localhost:64275/api/home/' + id);
   }
   public sendPostRequest(data){
-     console.log(data);
-     return this.httpClient.post(this.REST_API_SERVER, {data});
+     var data1= {
+      name: data.name,
+      lastName: data.lastName,
+      mobileNo: data.mobileNo,
+      address: data.address
   }
+     return this.httpClient.post(this.REST_API_SERVER,   data1  );
+  }
+  public sendPutRequest(id,data){
+    console.log(id);
+    console.log(data);
+    var data1= {
+      name: "KUMAR",
+      lastName: "VERMA",
+      mobileNo: "9876543210",
+      address: "B-35"
+ }
+ //console.log(data1);
+    return this.httpClient.put(this.REST_API_SERVER+'/'+id,   data1  );
+ }
 
   public getContacts():Array<{id, name, description, email}>{
     return this.contacts;
