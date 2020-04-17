@@ -1,29 +1,35 @@
 <br/><br/>
 <div class="container">
+
+  <div class="alert alert-warning alert-dismissible fade show" *ngIf="alertMsg" role="alert">
+    <strong>{{msg}}</strong>
+    <button type="button" class="close" (click)="close()" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
 <div class="card">
   <div class="card-header">
     Edit
   </div>
   <div class="card-body">
     <form>
-      <div class="form-group">
-        <label for="exampleInputEmail1">ID</label>
-        <input type="number"  name="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control"  name="name" required value={{products.name}} placeholder="First name" >
+        </div>
+        <div class="col">
+          <input type="text" class="form-control"  name="lastName" required value={{products.lastName}} placeholder="Last name" >
+        </div>
       </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Name</label>
-        <input type="text"  name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <br/>
+       <div class="form-group">
+        <input type="text" class="form-control"  name="mobileNo" required value={{products.mobileNo}} id="inputAddress" placeholder="Mobile Number" >
       </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Description</label>
-        <textarea class="form-control"  name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+       <div class="form-group">
+        <input type="text" class="form-control" name="address" required value={{products.address}} id="inputAddress" placeholder="Address" >
       </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email"  name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <button type="submit"  class="btn btn-primary">Submit</button>
+      <button type="submit" (click)="Update()"  class="btn btn-primary">Submit</button>
     </form>
   </div>
 </div>

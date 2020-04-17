@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'create', component: CreateComponent},
   {path: 'list', component: ListComponent},
   {path: 'api', component: APIComponent},
-  {path: 'edit', component: EditComponent},
+  {path: 'edit/:id', component: EditComponent},
 ];
 
 @NgModule({

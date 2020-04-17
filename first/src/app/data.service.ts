@@ -21,6 +21,9 @@ export class DataService {
   public sendGetRequest(){
     return this.httpClient.get(this.REST_API_SERVER);
   }
+  public sendGetRequestId(id){
+    return this.httpClient.get(this.REST_API_SERVER+'/'+id);
+  }
    public sendDeleteRequest(id){
      return this.httpClient.delete('http://localhost:64275/api/home/' + id);
   }
