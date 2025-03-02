@@ -1,13 +1,9 @@
-import { Component } from '@angular/core';
-import { DUMMY_USERS } from "../dummy-users";
+import { Component, Input } from '@angular/core';
 
 
 
 
-<<<<<<< master
-=======
-// After clean up
->>>>>>> local
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -15,7 +11,12 @@ import { DUMMY_USERS } from "../dummy-users";
 })
 export class UserComponent {
   
+  @Input({required:true}) avatar!: string;
+  @Input({required:true}) name!: string;
   
+  
+  public get imgagePath() : string {
+    return 'assets/users/' + this.avatar  }
   
   onSelectUser(){
     
