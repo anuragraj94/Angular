@@ -3,8 +3,11 @@ import { DUMMY_USERS } from "../dummy-users";
 
 
 
-const randomIndex = Math.floor(Math.random()* DUMMY_USERS.length)
 
+<<<<<<< master
+=======
+// After clean up
+>>>>>>> local
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -12,15 +15,9 @@ const randomIndex = Math.floor(Math.random()* DUMMY_USERS.length)
 })
 export class UserComponent {
   
-  selectedUser = DUMMY_USERS[randomIndex];
   
-  get imgagePath() {
-    return 'assets/users/' + this.selectedUser.avatar
-  }
   
   onSelectUser(){
-    console.log('Clicked!')
-    const randomIndex = Math.floor(Math.random()* DUMMY_USERS.length)
-    this.selectedUser = DUMMY_USERS[randomIndex];
+    
   }
 }
