@@ -5,6 +5,7 @@ import { DUMMY_USERS } from "../dummy-users";
 
 const randomIndex = Math.floor(Math.random()* DUMMY_USERS.length)
 
+// Before clean up
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
