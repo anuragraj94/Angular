@@ -57,7 +57,7 @@ onCancelAddTask(){
   this.isAddingTask = false;
 }
 
-onAddTask(taskData : NewTaskData):void{
+/* onAddTask(taskData : NewTaskData){
   this.tasks.unshift({
     id : new Date().getDate().toString(),
     userId: this.userId,
@@ -65,9 +65,21 @@ onAddTask(taskData : NewTaskData):void{
     summary:taskData.summary,
     dueDate:taskData.date
   })
-  this.isAddingTask =false;
-  console.log("Reaching onAddTask");
-  
-}
+  this.isAddingTask =false;  
+} 
+ */
+
+
+onAddTask(taskData : NewTaskData){
+  this.tasks.unshift({
+    id : new Date().getDate().toString(),
+    userId: this.userId,
+    title:taskData.title,
+    summary:taskData.summary,
+    dueDate:taskData.date
+  })
+  this.isAddingTask =false;  
+} 
+
 
 }

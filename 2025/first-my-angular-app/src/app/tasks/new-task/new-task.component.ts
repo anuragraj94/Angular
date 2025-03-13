@@ -26,7 +26,6 @@ export class NewTaskComponent {
     summary:this.enteredSummary,
     date:this.enteredDate
     });
-  console.log(this.enteredTitle);
   }
 
 }
