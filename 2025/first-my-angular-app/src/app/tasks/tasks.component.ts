@@ -57,29 +57,20 @@ onCancelAddTask(){
   this.isAddingTask = false;
 }
 
-/* onAddTask(taskData : NewTaskData){
-  this.tasks.unshift({
-    id : new Date().getDate().toString(),
-    userId: this.userId,
-    title:taskData.title,
-    summary:taskData.summary,
-    dueDate:taskData.date
-  })
-  this.isAddingTask =false;  
-} 
- */
 
 
-onAddTask(taskData : NewTaskData){
-  this.tasks.unshift({
-    id : new Date().getDate().toString(),
+onAddTask(taskData: NewTaskData): void {
+  const newTask = {
+    id: Date.now().toString(), // Use timestamp for unique ID
     userId: this.userId,
-    title:taskData.title,
-    summary:taskData.summary,
-    dueDate:taskData.date
-  })
-  this.isAddingTask =false;  
-} 
+    title: taskData.title,
+    summary: taskData.summary,
+    dueDate: taskData.date
+  };
+
+  this.tasks.unshift(newTask);
+  this.isAddingTask = false;
+}
 
 
 }
