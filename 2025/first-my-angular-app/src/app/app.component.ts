@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DUMMY_USERS } from "./dummy-users";
+import { DUMMY_USERS } from "./models/dummy-users";
 
 
 @Component({
