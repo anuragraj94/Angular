@@ -1,0 +1,7 @@
+<app-header />
+
+<app-user [userId]="userId" />
+
+@if (oninitView) { } @for (user of user; track user.id) {
+<app-results [user]="user" />
+}
