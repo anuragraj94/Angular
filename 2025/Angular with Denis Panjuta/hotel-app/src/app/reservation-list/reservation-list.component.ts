@@ -20,7 +20,7 @@ export class ReservationListComponent implements OnInit {
   }
 
   deleteReservation(id: string) {
-    alert('deleteReservation called');
+    //alert('deleteReservation called');
     this.reservationService.deleteReservation(id);
   }
  

@@ -11,36 +11,24 @@ import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ReservationService } from '../reservation/reservation.service';
 import { Reservation } from '../models/reservation';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   standalone: true,
   selector: 'app-reservation-form',
-  imports: [FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, HomeComponent],
   templateUrl: './reservation-form.component.html',
   styleUrl: './reservation-form.component.css',
 })
 export class ReservationFormComponent implements OnInit {
-  /* reservationForm: FormGroup = new FormGroup({});
-  constructor(private formBuilder: FormBuilder) {}
-  ngOnInit(): void {
-    this.reservationForm = this.formBuilder.group({
-      checkInDate: ['', Validators.required],
-      checkOutDate: ['', Validators.required],
-      guestName: ['', Validators.required],
-      guestEmail: ['', Validators.required, Validators.email],
-      roomNumber: ['', Validators.required],
-    });
-  }
-*/
-
   private fb = inject(FormBuilder); // Modern dependency injection
-  private activatedRoute = inject(ActivatedRoute); // Modern dependency injection
-  private router = inject(Router); // Modern dependency injection
-  private reservationService = inject(ReservationService); // Modern dependency injection
+  private activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
+  private reservationService = inject(ReservationService);
 
   reservationForm: FormGroup = this.fb.group({});
+
   ngOnInit(): void {
-    // Initialize form directly (no need for ngOnInit)
     this.reservationForm = this.fb.group({
       checkInDate: ['', Validators.required],
       checkOutDate: ['', Validators.required],
@@ -51,6 +39,7 @@ export class ReservationFormComponent implements OnInit {
 
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
+    //alert(id);
     if (id) {
       let reservation = this.reservationService.getReservation(id);
 
@@ -60,7 +49,7 @@ export class ReservationFormComponent implements OnInit {
 
   onSumbit() {
     if (this.reservationForm.valid) {
-      alert('valid');
+      //alert('valid');
       let reservation: Reservation = this.reservationForm.value;
 
       let id = this.activatedRoute.snapshot.paramMap.get('id');
