@@ -4,10 +4,11 @@ import { UserComponent } from './components/user/user.component';
 import { ResultsComponent } from './components/results/results.component';
 import { DummyRecords } from './models/dummyData';
 import { User } from './models/user.model';
+import { CardComponent } from "./components/shared/card/card.component";
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, UserComponent, ResultsComponent],
+  imports: [HeaderComponent, UserComponent, ResultsComponent, CardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
